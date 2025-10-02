@@ -1,5 +1,29 @@
 /* ===== ABOUT SECTION - ACETERNITY UI STYLE ===== */
 
+/* FlipWords Animation */
+.flip-word {
+  display: inline-block;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+.flip-word:hover {
+  transform: scale(1.05);
+}
+
+/* FlipWords specific styles */
+.flip-words-title {
+  color: #60a5fa;
+  font-weight: 600;
+  margin: 0 8px;
+}
+
+.flip-words-subtitle {
+  color: #a855f7;
+  font-weight: 500;
+  margin: 0 8px;
+}
+
 .about-section {
   position: relative;
   min-height: 100vh;

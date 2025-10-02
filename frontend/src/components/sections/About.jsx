@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FaCode, FaUsers, FaAward, FaRocket, FaLightbulb, FaHeart, FaStar, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { Rocket, Star, Users } from 'lucide-react'
-import { FlipWords } from '../ui/flip-words'
+import FlipWords from '../ui/flip-words'
 import '../../styles/components/about.css'
 
 // Animations Aceternity
@@ -147,13 +147,27 @@ function About() {
             <span>À propos</span>
           </div>
           <h2 className="section-title">
-          <span className="title-gradient">Développeur fullstack <span></span>{' '}
-            <FlipWords words={["motivé", "sérieux", "curieux"]} />
-            {' '}<span></span></span>
+          <span className="title-gradient">Développeur fullstack{' '}
+            <FlipWords 
+              words={["motivé", "sérieux", "curieux"]} 
+              interval={2000}
+              className="flip-words-title"
+            />
+          </span>
           </h2>
-          <h3 className="title-gradient"><span></span>{' '}
-            <FlipWords words={["4+ ans expérience", "5+ projets réalisés", "100% adaptable"]} />
-            {' '}<span></span> </h3>
+          <h3 className="title-gradient">
+            <FlipWords 
+              words={["4+ ans expérience", "5+ projets réalisés", "100% adaptable"]} 
+              interval={2500}
+              className="flip-words-subtitle"
+            />
+          </h3>
+          
+          {/* Fallback text au cas où FlipWords ne fonctionne pas */}
+          <div style={{ display: 'none' }} className="fallback-text">
+            <p>Développeur fullstack motivé, sérieux et curieux</p>
+            <p>4+ ans d'expérience • 5+ projets réalisés • 100% adaptable</p>
+          </div>
 
         </motion.div>
 
