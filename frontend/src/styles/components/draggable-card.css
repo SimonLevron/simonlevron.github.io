@@ -1,0 +1,158 @@
+/* ===== DRAGGABLE CARD STYLES ===== */
+
+.draggable-card-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.draggable-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+  user-select: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.draggable-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 12px 40px rgba(99, 102, 241, 0.2);
+  transform: translateY(-2px);
+}
+
+.draggable-card:active {
+  transform: scale(0.98);
+}
+
+.draggable-card.dragging {
+  z-index: 1000;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: rotate(5deg) scale(1.05);
+}
+
+.draggable-card .card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  color: #6366f1;
+  transition: all 0.3s ease;
+}
+
+.draggable-card:hover .card-icon {
+  color: #8b5cf6;
+  transform: scale(1.1);
+}
+
+.draggable-card .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.draggable-card .card-description {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.draggable-card .card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.draggable-card .tech-tag {
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  color: #6366f1;
+  font-weight: 500;
+}
+
+.draggable-card .card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.draggable-card:hover .card-glow {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .draggable-card {
+    min-width: 160px;
+    min-height: 100px;
+    padding: 16px;
+  }
+  
+  .draggable-card .card-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+  
+  .draggable-card .card-title {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  
+  .draggable-card .card-description {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+  }
+  
+  .draggable-card .tech-tag {
+    font-size: 0.65rem;
+    padding: 3px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .draggable-card {
+    min-width: 140px;
+    min-height: 90px;
+    padding: 12px;
+  }
+  
+  .draggable-card .card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+  }
+  
+  .draggable-card .card-title {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+  
+  .draggable-card .card-description {
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+  }
+}

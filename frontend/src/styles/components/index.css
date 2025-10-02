@@ -1,0 +1,18 @@
+/* Import des styles de tous les composants */
+
+/* Styles communs */
+@import './common.css';
+
+/* Styles des sections */
+@import './profil.css';
+@import './about.css';
+@import './skills.css';
+@import './experience.css';
+@import './education.css';
+@import './hobbies.css';
+@import './contact.css';
+
+/* Styles des composants UI */
+@import './header.css';
+@import './footer.css';
+@import './draggable-card.css';
