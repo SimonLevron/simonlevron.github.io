@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane, FaUser, FaComment, FaRocket, FaStar } from 'react-icons/fa'
+import emailjs from '@emailjs/browser'
+import { EMAILJS_CONFIG } from '../../config/emailjs'
 import '../../styles/components/contact.css'
 
 // Animations Aceternity
@@ -101,10 +103,22 @@ function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulation d'envoi (remplacez par votre service d'email)
     try {
-      // Pour l'instant, on simule un envoi réussi
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // Envoi de l'email via EmailJS
+      const result = await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: EMAILJS_CONFIG.TO_EMAIL
+        },
+        EMAILJS_CONFIG.PUBLIC_KEY
+      )
+      
+      console.log('Email envoyé:', result)
       
       setFormData({
         name: '',
@@ -114,6 +128,7 @@ function Contact() {
       })
       alert('Message envoyé avec succès ! Je vous répondrai rapidement.')
     } catch (err) {
+      console.error('Erreur EmailJS:', err)
       alert("Échec de l'envoi. Vous pouvez me contacter directement par email.")
     } finally {
       setIsSubmitting(false)
