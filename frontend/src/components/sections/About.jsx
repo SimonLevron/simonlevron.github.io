@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FaCode, FaUsers, FaAward, FaRocket, FaLightbulb, FaHeart, FaStar, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { Rocket, Star, Users } from 'lucide-react'
+import { FlipWords } from '../ui/flip-words'
 import '../../styles/components/about.css'
 
 // Animations Aceternity
@@ -146,9 +147,13 @@ function About() {
             <span>À propos</span>
           </div>
           <h2 className="section-title">
-          <span className="title-gradient">Développeur fullstack motivé, sérieux et curieux</span>
+          <span className="title-gradient">Développeur fullstack <span></span>{' '}
+            <FlipWords words={["motivé", "sérieux", "curieux"]} />
+            {' '}<span></span></span>
           </h2>
-          <h3 className="title-gradient">4+ ans d'expérience • 5+ projets réalisés • 100% adaptable</h3>
+          <h3 className="title-gradient"><span></span>{' '}
+            <FlipWords words={["4+ ans expérience", "5+ projets réalisés", "100% adaptable"]} />
+            {' '}<span></span> </h3>
 
         </motion.div>
 
